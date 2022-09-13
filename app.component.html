@@ -1,0 +1,59 @@
+<div class="form">
+<form [formGroup]="form" (ngSubmit)="submit()" class="form2">
+        
+  <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+          formControlName="name"
+          id="name" 
+          type="text" 
+          class="form-control">
+      <div *ngIf="f['name'].touched && f['name'].invalid" class="text-danger">
+          <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+          <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+      </div>
+  </div>
+   
+  <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+          formControlName="email"
+          id="email" 
+          type="text" 
+          class="form-control">
+      <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger">
+          <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+          <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+      </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="password">password</label>
+    <input 
+        formControlName="password"
+        id="password" 
+        type="text" 
+        class="form-control" minlength="4">
+    <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
+        <div *ngIf="f['password'].errors && f['password'].errors['required']">password is required.</div>
+        <div *ngIf="f['password'].errors && f['password'].errors['email']">Please, enter valid email address.</div>
+    </div>
+</div>
+
+   
+  <div class="form-group">
+      <label for="body">Number</label>
+      <input 
+          formControlName="number"
+          id="number" 
+          type="text"
+          class="form-control"  maxlength="10">
+      <div *ngIf="f['number'].touched && f['number'].invalid" class="text-danger">
+          <div *ngIf="f['number'].errors && f['number'].errors['required']">Number is required.</div>
+      </div>
+  </div>
+  
+  <button class="btn btn-primary"  type="submit">Submit</button>
+</form>
+</div>
